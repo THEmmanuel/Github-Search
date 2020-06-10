@@ -1,12 +1,13 @@
 import React from 'react';
 import UserCard from '../../Components/Cards/UserCard/UserCard'
+import style from './SearchResults.module.css'
 
 const dummyArray = ["Hey", "This", "Is", "A", "User"];
 
 const userCards = dummyArray.map(user => <UserCard />)
 const SearchResults = () => {
     return (
-        <div>
+        <div className = {style.SearchResults}>
             {userCards}
         </div>
     )

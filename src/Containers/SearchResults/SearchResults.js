@@ -10,7 +10,6 @@ const SearchResults = () => {
     return (
         <div className = {style.SearchResults}>
             {userCards}
-            <RepositoryCard/>
         </div>
     )
 }

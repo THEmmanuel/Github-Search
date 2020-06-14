@@ -3,8 +3,7 @@ import style from './SearchBar.module.css';
 
 const SearchBar = (props) => {
     return (
-        <input type = 'text' className = {style.SearchBar}>
-            
+        <input type = 'text' className = {style.SearchBar} placeholder = 'Enter a username.' onChange = {props.changed}>
         </input>
     )
 }

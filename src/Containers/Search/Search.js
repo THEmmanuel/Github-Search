@@ -15,15 +15,19 @@ const Search = () => {
     }
 
     useEffect(() => {
+        console.log('heya')
+    })
+
+    const userSearchHandler = () => {
         githubAPI.get(`users?q=${userInput}`)
         .then(response => console.log(response))
         .catch(err => console.log('there was an error' + err));
-    })
+    }
 
     return (
         <div className = {style.Search}>
-            <SearchBar />
-            <SearchButton  />
+            <SearchBar changed = {userInputHandler} value = {userInput}/>
+            <SearchButton clicked = {userSearchHandler} />
         </div>
     )
 }

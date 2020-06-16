@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './Search.module.css'
 import SearchBar from '../../Components/SearchBar/SearchBar'
 import SearchButton from '../../Components/SearchButton/searchButton'
 import githubAPI from '../../API/github';
+import SearchResults from '../SearchResults/SearchResults';
+import Usercard from '../../Components/Cards/UserCard/UserCard';
 
 const Search = () => {
 
     const [userInput, setUserInput] = useState({
-        userInput : ''
+        userInput: ''
     })
 
     const userInputHandler = (event) => {
@@ -18,21 +20,33 @@ const Search = () => {
         console.log('heya')
     })
 
+    const dummyResponse = ['one', 'two', 'three', 'four']
+
+    const userCards = dummyResponse.map(user => <Usercard />)
+
+    const responseResults = null
+
     const userSearchHandler = () => {
         githubAPI.get(`users?q=${userInput}`)
-        .then(response => console.log(response))
-        .catch(err => console.log('there was an error' + err));
+            .then(response => response = responseResults)
+            .catch(err => console.log('there was an error' + err));
     }
 
+    console.log(responseResults)
+
     return (
-        <div className = {style.Search}>
-            <SearchBar changed = {userInputHandler} value = {userInput}/>
-            <SearchButton clicked = {userSearchHandler} />
-        </div>
+        <>
+            <div className={style.Search}>
+                <SearchBar changed={userInputHandler} value={userInput} />
+                <SearchButton clicked={userSearchHandler} />
+            </div>
+
+            <SearchResults>
+                {userCards}
+            </SearchResults>
+
+        </>
     )
 }
 
 export default Search;
-
-// const [one, two, three] = [1, 2, 3];
-// console.log(one, two, three)

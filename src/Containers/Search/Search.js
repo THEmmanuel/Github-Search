@@ -4,37 +4,34 @@ import SearchBar from '../../Components/SearchBar/SearchBar'
 import SearchButton from '../../Components/SearchButton/searchButton'
 import githubAPI from '../../API/github';
 import SearchResults from '../SearchResults/SearchResults';
-import Usercard from '../../Components/Cards/UserCard/UserCard';
+import UserCard from '../../Components/Cards/UserCard/UserCard';
+import Error from '../../Components/Error/Error';
 
 const Search = () => {
 
-    const [userInput, setUserInput] = useState({
-        userInput: ''
-    })
+    const [userInput, setUserInput] = useState({ userInput: '' })
+    const [userSearch, setSearchStatus] = useState({ userSearch: true });
+    const [searchResults, setSearchResults] = useState({ results: [] })
+
 
     const userInputHandler = (event) => {
         setUserInput(event.target.value)
     }
 
-    useEffect(() => {
-        console.log('heya')
-    })
-
     const dummyResponse = ['one', 'two', 'three', 'four']
-
-    const userCards = dummyResponse.map(user => <Usercard />)
-
-    const responseResults = null
 
     const userSearchHandler = () => {
         githubAPI.get(`users?q=${userInput}`)
-            .then(response => console.log(response))
-            .catch(err => console.log('there was an error' + err
-                
-            ));
-    }
+            .then(response => setSearchResults({results : response.data}),
+                setSearchStatus({ userSearch: true }))
+            .catch(err => {
+                console.log('there was an error' + err);
+                setSearchStatus({ userSearch: false })
+            }
+        )
+    };
 
-    console.log(responseResults)
+    let results = searchResults.results.map(user => <UserCard/>)
 
     return (
         <>
@@ -44,7 +41,8 @@ const Search = () => {
             </div>
 
             <SearchResults>
-                {userCards}
+                {/* {results} */}
+                {userSearch === true ? results : <Error />}
             </SearchResults>
 
         </>

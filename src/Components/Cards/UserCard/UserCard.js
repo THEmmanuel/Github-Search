@@ -7,7 +7,7 @@ const UserCard = (props) => {
     return(
         <div className = {style.UserCard}>
             {/* {props.username} */}
-            <ProfilePicture/>
+            {/* <ProfilePicture/> */}
             someUserName
         </div>
     )

@@ -28,8 +28,10 @@ const Search = () => {
 
     const userSearchHandler = () => {
         githubAPI.get(`users?q=${userInput}`)
-            .then(response => response = responseResults)
-            .catch(err => console.log('there was an error' + err));
+            .then(response => console.log(response))
+            .catch(err => console.log('there was an error' + err
+                
+            ));
     }
 
     console.log(responseResults)

@@ -9,40 +9,56 @@ import Error from '../../Components/Error/Error';
 
 const Search = () => {
 
-    const [userInput, setUserInput] = useState({ userInput: '' })
-    const [userSearch, setSearchStatus] = useState({ userSearch: true });
-    const [searchResults, setSearchResults] = useState({ results: [] })
+    const [state, setState] = useState(
+        {
+            userInput: '',
+            userSearchSucessful: null,
+            searchResults: []
+        })
+    // const [userSearch, setSearchStatus] = useState({ userSearch: true });
+    // const [searchResults, setSearchResults] = useState({ results: [] })
 
 
     const userInputHandler = (event) => {
-        setUserInput(event.target.value)
+        setState({
+            ...state,
+            userInput: event.target.value
+        }
+        )
     }
 
-    const dummyResponse = ['one', 'two', 'three', 'four']
-
     const userSearchHandler = () => {
-        githubAPI.get(`users?q=${userInput}`)
-            .then(response => setSearchResults({results : response.data}),
-                setSearchStatus({ userSearch: true }))
+        githubAPI.get(`users?q=${state.userInput}`)
+            .then(response => setState({
+                ...state,
+                searchResults: response.data.items,
+                userSearchSucessful: true
+            }),
+                console.log(state)
+            )
             .catch(err => {
                 console.log('there was an error' + err);
-                setSearchStatus({ userSearch: false })
+                setState({
+                    ...state,
+                    userSearchSucessful: false,
+                })
             }
-        )
+            )
     };
 
-    let results = searchResults.results.map(user => <UserCard/>)
+
+    let results = state.searchResults.map(user => <UserCard />)
 
     return (
         <>
             <div className={style.Search}>
-                <SearchBar changed={userInputHandler} value={userInput} />
+                <SearchBar changed={userInputHandler} value={state.userInput} />
                 <SearchButton clicked={userSearchHandler} />
             </div>
 
             <SearchResults>
                 {/* {results} */}
-                {userSearch === true ? results : <Error />}
+                {state.userSearchSucessful === true ? results : <Error />}
             </SearchResults>
 
         </>

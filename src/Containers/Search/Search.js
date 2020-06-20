@@ -15,8 +15,6 @@ const Search = () => {
             userSearchSucessful: null,
             searchResults: []
         })
-    // const [userSearch, setSearchStatus] = useState({ userSearch: true });
-    // const [searchResults, setSearchResults] = useState({ results: [] })
 
 
     const userInputHandler = (event) => {
@@ -34,7 +32,7 @@ const Search = () => {
                 searchResults: response.data.items,
                 userSearchSucessful: true
             }),
-                console.log(state)
+            console.log(state)
             )
             .catch(err => {
                 console.log('there was an error' + err);
@@ -47,7 +45,7 @@ const Search = () => {
     };
 
 
-    let results = state.searchResults.map(user => <UserCard userImage = {user.avatar_url} userName = {user.login}></UserCard>)
+    let results = state.searchResults.map(user => <UserCard userImage={user.avatar_url} userName={user.login}></UserCard>)
 
     return (
         <>

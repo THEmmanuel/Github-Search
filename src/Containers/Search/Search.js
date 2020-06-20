@@ -47,7 +47,7 @@ const Search = () => {
     };
 
 
-    let results = state.searchResults.map(user => <UserCard />)
+    let results = state.searchResults.map(user => <UserCard userImage = {user.avatar_url} userName = {user.login}></UserCard>)
 
     return (
         <>
@@ -57,7 +57,6 @@ const Search = () => {
             </div>
 
             <SearchResults>
-                {/* {results} */}
                 {state.userSearchSucessful === true ? results : <Error />}
             </SearchResults>
 

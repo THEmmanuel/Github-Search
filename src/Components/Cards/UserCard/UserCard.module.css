@@ -2,15 +2,29 @@
     background-color: #DADEE4;
     color: #0D2241;
     transition: all 0.5s ease-in-out;
-    width: 200px;
+    width: 220px;
     height: 120px;
     border-radius: 10px;
     text-align: center;
     cursor: pointer; 
+    display : flex
     /* margin: 10px; */
 }
 
 .UserCard:hover{
     background-color: #0D2241;
     color: #DADEE4;
+}
+
+.ProfilePicture {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin: auto 10px;
+}
+
+.UserName {
+    margin: auto 5px;
+    font-size: medium;
+    font-weight: bold;
 }

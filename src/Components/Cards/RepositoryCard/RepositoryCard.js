@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './RepositoryCard.module.css'
 
-const repositoryCard = () => {
+const repositoryCard = (props) => {
     return (
         <div className = {style.RepositoryCard}>
             SomeRepoInformation

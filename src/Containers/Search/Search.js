@@ -6,6 +6,7 @@ import githubAPI from '../../API/github';
 import SearchResults from '../SearchResults/SearchResults';
 import UserCard from '../../Components/Cards/UserCard/UserCard';
 import Error from '../../Components/Error/Error';
+import UserInfo from '../UserInfo/UserInfo';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const Search = () => {
@@ -49,14 +50,14 @@ const Search = () => {
     let results = state.searchResults.map(user => {
         return (
             <Router>
-            <Link to= {`/${user.login}/repos`}>
-                <UserCard
-                    userImage={user.avatar_url}
-                    userName={user.login}
-                    key = {user.id}>
+                <Link to={`/user/${user.login}/repos`}>
+                    <UserCard
+                        userImage={user.avatar_url}
+                        userName={user.login}
+                        key={user.id}>
 
-                </UserCard>
-            </Link></Router>
+                    </UserCard>
+                </Link></Router>
         )
         //Current challenge dynamically at the links to the repos with the matching usernames
     })
@@ -74,8 +75,17 @@ const Search = () => {
                 {state.userSearchSucessful === true ? results : <Error />}
             </SearchResults>
 
+            <Router>
+                <Switch>
+                    <Route exact path = {`/user/{/*user.login*/}/repos`}>
+                        <UserInfo/>
+                    </Route>
+                </Switch>
+            </Router>
         </>
     )
-}
 
+
+
+}
 export default Search;

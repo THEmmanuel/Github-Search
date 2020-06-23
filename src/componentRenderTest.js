@@ -7,7 +7,7 @@ import Error from './Components/Error/Error';
 const style = {
     // backgroundColor : '#00FF00',
     // opacity : '75%'
-    marginTop : '250px'
+    margin : 'auto'
 }
 
 const ComponentRenderTest = () => {

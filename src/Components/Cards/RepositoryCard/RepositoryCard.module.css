@@ -2,14 +2,37 @@
     background-color: #DADEE4;
     color: #0D2241;
     transition: all 0.5s ease-in-out;
-    width: 420px;
-    height: 150px;
+    width: 500px;
+    /* height: 150px; */
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
-.RepositoryCard:hover{
+.RepositoryName {
+    /* justify-self: left; */
+    margin: 15px auto 15px 10px;
+    font-size: large;
+    font-weight: bold;
+    /* background-color: darkgreen; */
+}
+
+.RepositoryDescription {
+    text-align: left;
+    margin-left: 10px;
+}
+
+.RepositoryInformation {
+    display: grid;
+    margin: 15px auto 15px 10px;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+}
+
+.RepositoryCard:hover {
     background-color: #0D2241;
     color: #DADEE4;
 }

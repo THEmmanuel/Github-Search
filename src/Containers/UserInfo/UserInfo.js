@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
-import RepositoryCard from '../Cards'
 import githubAPI from '../../API/github';
 import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard'
 
@@ -12,13 +11,16 @@ import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCar
 */
 
 
-const userInfo = props => {
+const UserInfo = (props) => {
+
+    const [state, setstate] = useState()
+
 
     const userRepoHandler = () => {
-        githubAPI.get(`/user/${props.userName}/repos`)
+        githubAPI.get(props.user.repos_url)
             .then(response =>
                 <div>
-                    Respository cards will appear here
+                    <RespositoryCard/>
                 </div>
             )
     }
@@ -30,4 +32,4 @@ const userInfo = props => {
     )
 }
 
-export default userInfo
+export default UserInfo

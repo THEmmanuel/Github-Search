@@ -46,11 +46,10 @@ const Search = () => {
             )
     };
 
-
     let results = state.searchResults.map(user => {
         return (
             <Router>
-                <Link to={`/user/${user.login}/repos`}>
+                <Link to={`user/${user.login}/repos`}>
                     <UserCard
                         userImage={user.avatar_url}
                         userName={user.login}
@@ -61,6 +60,8 @@ const Search = () => {
         )
         //Current challenge dynamically at the links to the repos with the matching usernames
     })
+
+    const userLogin = state.searchResults.map(user => user.login)
 
     // results = <p>search for something</p>
 
@@ -74,11 +75,11 @@ const Search = () => {
             <SearchResults>
                 {state.userSearchSucessful === true ? results : <Error />}
             </SearchResults>
-
+            
             <Router>
                 <Switch>
-                    <Route exact path = {`/user/{/*user.login*/}/repos`}>
-                        <UserInfo/>
+                    <Route exact path = {`/user/${userLogin}/repos`}>
+                        <UserInfo user = {userLogin}/>
                     </Route>
                 </Switch>
             </Router>
@@ -86,6 +87,7 @@ const Search = () => {
     )
 
 
+    //Find a waay to pass the login object for a single user as props to the userInfo component
 
 }
 export default Search;

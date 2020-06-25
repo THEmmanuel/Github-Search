@@ -5,7 +5,7 @@ import ProfilePicture from '../../ProfilePicture/ProfilePicture';
 
 const UserCard = (props) => {
     return (
-        <div className={style.UserCard}>
+        <div className={style.UserCard} onClick = {props.clicked}>
             <img src={props.userImage} className={style.ProfilePicture} alt='profile' />
             <span className={style.UserName}>{props.userName}</span>
         </div>

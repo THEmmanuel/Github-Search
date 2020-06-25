@@ -15,7 +15,8 @@ const Search = () => {
         {
             userInput: '',
             userSearchSucessful: null,
-            searchResults: []
+            searchResults: [],
+            selectedUser : null
         })
 
 
@@ -26,6 +27,8 @@ const Search = () => {
         }
         )
     }
+
+    // useEffect    
 
     const userSearchHandler = () => {
         githubAPI.get(`users?q=${state.userInput}`)
@@ -46,15 +49,23 @@ const Search = () => {
             )
     };
 
+    const userSelectedHandler = (userName) => {
+        setState({
+            ...state,
+            selectedUser : userName
+        })
+        console.log(userName + 'I was called')
+    }
+
     let results = state.searchResults.map(user => {
         return (
             <Router>
-                <Link to={`user/${user.login}/repos`}>
+                <Link to={`user/${user.login}`}>
                     <UserCard
                         userImage={user.avatar_url}
                         userName={user.login}
-                        key={user.id}>
-
+                        key={user.id}
+                        clicked = {() => userSelectedHandler(user.login)}>
                     </UserCard>
                 </Link></Router>
         )
@@ -62,6 +73,8 @@ const Search = () => {
     })
 
     const userLogin = state.searchResults.map(user => user.login)
+
+    // console.log(userLogin)
 
     // results = <p>search for something</p>
 
@@ -78,11 +91,13 @@ const Search = () => {
             
             <Router>
                 <Switch>
-                    <Route exact path = {`/user/${userLogin}/repos`}>
+                    <Route exact path = {`/user/${userLogin}`}>
                         <UserInfo user = {userLogin}/>
                     </Route>
                 </Switch>
             </Router>
+
+            )
         </>
     )
 

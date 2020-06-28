@@ -16,7 +16,7 @@ const Search = () => {
             userInput: '',
             userSearchSucessful: null,
             searchResults: [],
-            selectedUser : null
+            selectedUser: null
         })
 
 
@@ -52,57 +52,63 @@ const Search = () => {
     const userSelectedHandler = (userName) => {
         setState({
             ...state,
-            selectedUser : userName
+            selectedUser: userName
         })
-        console.log(userName + 'I was called')
+        console.log(state)
     }
 
     let results = state.searchResults.map(user => {
         return (
             <Router>
-                <Link to={`user/${user.login}`}>
+                <Link to={`/user/${user.login}`} key={user.id}>
                     <UserCard
                         userImage={user.avatar_url}
                         userName={user.login}
-                        key={user.id}
-                        clicked = {() => userSelectedHandler(user.login)}>
+                        clicked={() => userSelectedHandler(user.login)}>
                     </UserCard>
-                </Link></Router>
+                </Link>
+            </Router>
         )
-        //Current challenge dynamically at the links to the repos with the matching usernames
     })
 
-    const userLogin = state.searchResults.map(user => user.login)
-
-    // console.log(userLogin)
-
-    // results = <p>search for something</p>
+    const userLogin = state.selectedUser;
 
     return (
         <>
-            <div className={style.Search}>
-                <SearchBar changed={userInputHandler} value={state.userInput} />
-                <SearchButton clicked={userSearchHandler} />
-            </div>
 
-            <SearchResults>
-                {state.userSearchSucessful === true ? results : <Error />}
-            </SearchResults>
-            
             <Router>
+                <div className={style.Search}>
+                    <SearchBar changed={userInputHandler} value={state.userInput} />
+                    <SearchButton clicked={userSearchHandler} />
+                </div>
+
+                <SearchResults>
+                    {state.userSearchSucessful === true ? results : <Error />}
+                </SearchResults>
+
                 <Switch>
-                    <Route exact path = {`/user/${userLogin}`}>
-                        <UserInfo user = {userLogin}/>
+                    <Route path='/' exact>
+                        <SearchResults />
+                    </Route>
+
+                    <Route path='/user/:userName' exact >
+                        <UserInfo user={userLogin} />
                     </Route>
                 </Switch>
             </Router>
 
-            )
+    )
         </>
     )
 
+    // `/user/${userLogin}`
 
-    //Find a waay to pass the login object for a single user as props to the userInfo component
+    //Find a waay to pass the login object for a single user as props to the userInfo component.--- done.
+
+    //Find a way to load the userInfo object in a route as a seperate page.
+
 
 }
+
+
 export default Search;

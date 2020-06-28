@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
@@ -13,21 +13,30 @@ import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCar
 
 const UserInfo = (props) => {
 
-    const [state, setstate] = useState()
+    const [state, setstate] = useState(
+        {
+            userName : props.user
+        }
+    )
 
 
-    const userRepoHandler = () => {
-        githubAPI.get(props.user.repos_url)
-            .then(response =>
-                <div>
-                    <RespositoryCard/>
-                </div>
-            )
-    }
+    // const userRepoHandler = () => {
+    //     githubAPI.get(props.user.repos_url)
+    //         .then(response =>
+    //             <div>
+    //                 <RespositoryCard/>
+    //             </div>
+    //         )
+    // }
+
+    // useEffect(
+    //     // console.log(props)
+    // )
+
 
     return (
         <div>
-            
+             hey hey hey        
         </div>
     )
 }

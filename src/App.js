@@ -8,9 +8,14 @@ import ComponentRenderTest from './componentRenderTest'
 import './App.css';
 
 function App() {
+
+  const testingSearch = () => {
+    console.log('pretending to search')
+  }
+
   return (
     <div className="App">
-      <Search/>
+      <Search search = {testingSearch}/>
       {/* <SearchResults/> */}
       <ComponentRenderTest/>
     </div> 

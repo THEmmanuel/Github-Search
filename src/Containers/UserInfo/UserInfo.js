@@ -13,12 +13,12 @@ import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCar
 
 const UserInfo = (props) => {
 
-    const [state, setstate] = useState(
-        {
-            userName : props.user
-        }
-    )
-    
+    // const [state, setstate] = useState(
+    //     {
+    //         userName : props.user
+    //     }
+    // )
+
 
     useEffect(() => console.log(props))
 
@@ -39,7 +39,7 @@ const UserInfo = (props) => {
 
     return (
         <div>
-             hey hey hey        
+             hey, I recieved {props.uaer} 
         </div>
     )
 }

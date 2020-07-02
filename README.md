@@ -4,7 +4,7 @@ A React.js app I built to help me solidify the things I've learnt so far in Reac
 This app allows you to search and view Github users and their repos via their usernames.
 It uses the [Github's API](https://api.github.com)
 
-<!-- Live app hosted [here](https://addlinkslater.com)  -->
+<!-- Live app hosted [here](https://docs.github.com/)  -->
 
 **Main Technologes Used:**
 - React.js

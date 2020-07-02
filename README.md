@@ -2,9 +2,9 @@
 
 A React.js app I built to help me solidify the things I've learnt so far in React.js.
 This app allows you to search and view Github users and their repos via their usernames.
-It uses the [Github's API](https://api.github.com)
+It connects and gets all it's data from the [Github API](https://docs.github.com/)
 
-<!-- Live app hosted [here](https://docs.github.com/)  -->
+<!-- Live app hosted [here]()  -->
 
 **Main Technologes Used:**
 - React.js
@@ -17,4 +17,4 @@ It uses the [Github's API](https://api.github.com)
 - React hooks, (useState, useEffect and useReducer)
 - State management with useState and useReducer
 - Passing data between components with props.
-- Most importantly, Building this project also helped me practice my design, planning and building skills 
+- Most importantly, building this project also helped me plan out an app from ideation to fruition 

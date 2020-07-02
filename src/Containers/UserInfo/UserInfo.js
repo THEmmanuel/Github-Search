@@ -10,6 +10,9 @@ import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCar
 - Display components with the recieved data. 
 */
 
+const testingArray = [
+    1, 2, 3, 4
+];
 
 const UserInfo = (props) => {
 
@@ -17,19 +20,20 @@ const UserInfo = (props) => {
     const [repositories, setRepositories] = useState([])
 
 
-    useEffect(() => {
-        userRepoHandler(props.user)
-        return console.log(repositories)
-    }, [])
-
+    
     const userRepoHandler = user => {
         githubAPI.get(`users/${user}/repos`)
             .then(response => {
-                // setRepositories(response.data.items)
+                setRepositories(repositories.concat(response.data))
                 console.log(response.data)
-            }
-            )
+            })
     }
+
+    useEffect(() => {
+        userRepoHandler(props.user)
+        return console.log(repositories)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
 
     return (

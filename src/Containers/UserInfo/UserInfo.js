@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
-import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard'
+import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
 
 /*
 - Pass the username as props from the search component.... done!
@@ -19,15 +19,14 @@ const UserInfo = (props) => {
 
     useEffect(() => {
         userRepoHandler(props.user)
-        return console.log(props.user + repositories)
-    })
-
+        return console.log(repositories)
+    }, [])
 
     const userRepoHandler = user => {
         githubAPI.get(`users/${user}/repos`)
             .then(response => {
-                setRepositories(response)
-                // console.log(response)
+                // setRepositories(response.data.items)
+                console.log(response.data)
             }
             )
     }
@@ -44,4 +43,4 @@ const UserInfo = (props) => {
 
 //Show the user account info in it's own component.
 
-export default UserInfo
+export default UserInfo;

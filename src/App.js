@@ -1,17 +1,17 @@
 import React, { useReducer, useState } from 'react';
 //Component Imports
 import Search from './Containers/Search/Search';
-import SearchResults from './Containers/SearchResults/SearchResults'
-import ComponentRenderTest from './componentRenderTest'
-import UserCard from './Components/Cards/UserCard/UserCard'
-import Spinner from './Components/Spinner/Spinner'
-import Error from './Components/Error/Error'
-import UserInfo from './Containers/UserInfo/UserInfo'
+import SearchResults from './Containers/SearchResults/SearchResults';
+import ComponentRenderTest from './componentRenderTest';
+import UserCard from './Components/Cards/UserCard/UserCard';
+import Spinner from './Components/Spinner/Spinner';
+import Error from './Components/Error/Error';
+import UserInfo from './Containers/UserInfo/UserInfo';
 import './App.css';
 //API import
-import githubApi from './API/github'
+import githubApi from './API/github';
 //Router import
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 
 const initialState = {
@@ -66,7 +66,7 @@ const App = () => {
 			type: 'USER_SEARCH_REQUEST'
 		});
 
-		githubApi.get(`users?q=${searchValue}`)
+		githubApi.get(`/search/users?q=${searchValue}`)
 			.then(response => {
 				dispatch({
 					type: 'USER_SEARCH_SUCCESS',
@@ -106,11 +106,10 @@ const App = () => {
 							) : (
 									searchResults.map(user => {
 										return (
-											<Link to={`/user/${selectedUser}`}>
+											<Link to={`/user/${selectedUser}`} key={user.id}>
 												<UserCard
 													userName={user.login}
 													userImage={user.avatar_url}
-													key={user.id}
 													clicked={() => userSelectedHandler(user.login)}
 												/>
 											</Link>

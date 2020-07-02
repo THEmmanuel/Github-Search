@@ -18,6 +18,9 @@ const UserInfo = (props) => {
             userName : props.user
         }
     )
+    
+
+    useEffect(() => console.log(props))
 
 
     // const userRepoHandler = () => {

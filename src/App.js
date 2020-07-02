@@ -1,18 +1,23 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
+//Component Imports
 import Search from './Containers/Search/Search';
 import SearchResults from './Containers/SearchResults/SearchResults'
 import ComponentRenderTest from './componentRenderTest'
 import UserCard from './Components/Cards/UserCard/UserCard'
 import Spinner from './Components/Spinner/Spinner'
-import githubApi from './API/github'
 import Error from './Components/Error/Error'
+import UserInfo from './Containers/UserInfo/UserInfo'
 import './App.css';
+//API import
+import githubApi from './API/github'
+//Router import
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+
 
 const initialState = {
 	isLoading: false,
 	searchResults: [],
 	errorMessage: null,
-	// error : true
 }
 
 const reducer = (state, action) => {
@@ -38,13 +43,19 @@ const reducer = (state, action) => {
 				errorMessage: action.error
 			};
 
+		case 'GET_SELECTED_USER':
+			return {
+				...state,
+				// selectedUser
+			}
+
 		default: return state
 	}
 };
 
-
 const App = () => {
 
+	const [selectedUser, setSelectedUser] = useState('')
 	const [state, dispatch] = useReducer(reducer, initialState)
 
 
@@ -61,6 +72,7 @@ const App = () => {
 					type: 'USER_SEARCH_SUCCESS',
 					payload: response.data.items
 				})
+				console.log(response)
 			})
 
 			.catch(
@@ -72,32 +84,52 @@ const App = () => {
 				}
 			)
 	}
-	//Search function ends here.
+	//userSearch function ends here.
+
+	const userSelectedHandler = userName => {
+		setSelectedUser(userName);
+	}
 
 	const { isLoading, searchResults, errorMessage } = state
 
 	return (
-		<div className="App">
-			<Search search={userSearch} />
-			
-			<SearchResults>
-				{
-					isLoading && !errorMessage ?
-						<Spinner /> :
-						errorMessage ? (
-							<Error />
-						) : (
-								searchResults.map(user => {
-									return (<UserCard
-										userImage={user.login}
-										userName={user.avatar_url}
-									/>)
-								})
-							)
-				}
-			</SearchResults>
-			<ComponentRenderTest />
-		</div>
+		<Router>
+			<div className="App">
+				<Search search={userSearch} />
+
+				<SearchResults>
+					{
+						isLoading && !errorMessage ?
+							<Spinner /> :
+							errorMessage ? (
+								<Error />
+							) : (
+									searchResults.map(user => {
+										return (
+											<Link to={`/user/${selectedUser}`}>
+												<UserCard
+													userName={user.login}
+													userImage={user.avatar_url}
+													key={user.id}
+													clicked={() => userSelectedHandler(user.login)}
+												/>
+											</Link>
+										)
+									})
+								)
+					}
+				</SearchResults>
+				{/* <ComponentRenderTest /> */}
+			</div>
+
+
+			<Switch>
+				<Route path='/user/:userName'>
+					<UserInfo user = {selectedUser} />
+				</Route>
+			</Switch>
+		</Router>
 	)
 }
+
 export default App;

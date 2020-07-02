@@ -125,7 +125,7 @@ const App = () => {
 
 			<Switch>
 				<Route path='/user/:userName'>
-					<UserInfo user = {selectedUser} />
+					<UserInfo user={selectedUser} exact />
 				</Route>
 			</Switch>
 		</Router>

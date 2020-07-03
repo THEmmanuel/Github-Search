@@ -4,24 +4,24 @@ import style from './RepositoryCard.module.css'
 const repositoryCard = (props) => {
     return (
         <div className={style.RepositoryCard}>
-            <span className={style.RepositoryName}>SomeRepo</span>
+            <span className={style.RepositoryName}>{props.name}</span>
 
-            <span className={style.RepositoryDescription}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem veniam doloribus saepe explicabo natus, commodi repudiandae, in obcaecati fuga, adipisci odit similique voluptatum esse sit maxime minus ut porro nihil.</span>
+            <span className={style.RepositoryDescription}>{props.description}</span>
 
 
             <div className={style.RepositoryInformation}>
-                <span className={style.RepositoryLanguage}>JavaScript</span>
+                <span className={style.RepositoryLanguage}>{props.language}</span>
 
                 <div>
-                    <span>147 stars</span>
+                    <span>{props.stars}</span>
                 </div>
 
                 <div>
-                    <span>682 forks</span>
+                    <span>{props.forks}</span>
                 </div>
 
                 <div>
-                    <span>Last push time 5 hours ago</span>
+                    <span>{props.pushTime}</span>
                 </div>
             </div>
 

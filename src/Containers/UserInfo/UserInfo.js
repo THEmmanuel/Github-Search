@@ -40,7 +40,15 @@ const UserInfo = (props) => {
         <div style={style.UserInfo}>
             {
                 repositories.map(repository => {
-                    return <RepositoryCard/>
+                    return <RepositoryCard 
+                        name = {repository.name}
+                        description = {repository.description}
+                        language = {repository.language}
+                        stars = {repository.stargazers_count}
+                        forks = {repository.forks_count}
+                        pushTime = {repository.pushed_at}
+                        key = {repository.id}
+                    />
                 })
             }
         </div>
@@ -48,5 +56,6 @@ const UserInfo = (props) => {
 }
 
 //Show the user account info in it's own component.
+//Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats
 
 export default UserInfo;

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
-import RespositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
+import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
 
 /*
 - Pass the username as props from the search component.... done!
-- Use the passed data/props to fetch the respective repo information from the api... pending
+- Use the passed data/props to fetch the respective repo information from the api... done!
 - Display components with the recieved data. 
 */
 
-const testingArray = [
-    1, 2, 3, 4
-];
+// const testingArray = [
+//     1, 2, 3, 4
+// ];
 
 const UserInfo = (props) => {
 
@@ -25,7 +25,7 @@ const UserInfo = (props) => {
         githubAPI.get(`users/${user}/repos`)
             .then(response => {
                 setRepositories(repositories.concat(response.data))
-                console.log(response.data)
+                // console.log(response.data)
             })
     }
 
@@ -37,10 +37,12 @@ const UserInfo = (props) => {
 
 
     return (
-        <div style={{
-            color: 'yellow'
-        }}>
-            hey, I recieved {props.uaer}
+        <div style={style.UserInfo}>
+            {
+                repositories.map(repository => {
+                    return <RepositoryCard/>
+                })
+            }
         </div>
     )
 }

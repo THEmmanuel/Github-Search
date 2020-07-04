@@ -3,13 +3,6 @@ import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
 import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
-
-/*
-- Pass the username as props from the search component.... done!
-- Use the passed data/props to fetch the respective repo information from the api... done!
-- Display components with the recieved data. 
-*/
-
 // const testingArray = [
 //     1, 2, 3, 4
 // ];
@@ -20,7 +13,7 @@ const UserInfo = (props) => {
     const [repositories, setRepositories] = useState([])
 
 
-    
+
     const userRepoHandler = user => {
         githubAPI.get(`users/${user}/repos`)
             .then(response => {
@@ -40,14 +33,14 @@ const UserInfo = (props) => {
         <div style={style.UserInfo}>
             {
                 repositories.map(repository => {
-                    return <RepositoryCard 
-                        name = {repository.name}
-                        description = {repository.description}
-                        language = {repository.language}
-                        stars = {repository.stargazers_count}
-                        forks = {repository.forks_count}
-                        pushTime = {repository.pushed_at}
-                        key = {repository.id}
+                    return <RepositoryCard
+                        name={repository.name}
+                        description={repository.description}
+                        language={repository.language}
+                        stars={repository.stargazers_count}
+                        forks={repository.forks_count}
+                        pushTime={repository.pushed_at}
+                        key={repository.id}
                     />
                 })
             }
@@ -57,5 +50,7 @@ const UserInfo = (props) => {
 
 //Show the user account info in it's own component.
 //Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats
+//Display the time as it should be
+//Sort the repos according to time
 
 export default UserInfo;

@@ -9,7 +9,8 @@ It connects and gets all it's data from the [Github API](https://docs.github.com
 **Main Technologes Used:**
 - React.js
 - Axios
-- React Router DOM
+- React Router 
+- Moment.js
 
 **Here are some of the things I learnt**
 - Fetching HTTP requests using the Axios package and Javascript promises

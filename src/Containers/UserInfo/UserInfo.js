@@ -35,7 +35,7 @@ const UserInfo = (props) => {
 
 
     return (
-        <div style={style.UserInfo}>
+        <div className={style.UserInfo}>
             {
                 repositories.map(repository => {
                     return <RepositoryCard

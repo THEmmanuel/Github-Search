@@ -3,6 +3,7 @@ import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
 import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
+import moment from 'moment'
 // const testingArray = [
 //     1, 2, 3, 4
 // ];
@@ -15,7 +16,7 @@ const UserInfo = (props) => {
 
 
     const userRepoHandler = user => {
-        githubAPI.get(`users/${user}/repos`)
+        githubAPI.get(`users/${user}/repos?sort=updated&direction=desc`)
             .then(response => {
                 setRepositories(repositories.concat(response.data))
                 // console.log(response.data)
@@ -28,6 +29,9 @@ const UserInfo = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const now = (moment())
+    console.log(now)
+
 
     return (
         <div style={style.UserInfo}>
@@ -39,7 +43,7 @@ const UserInfo = (props) => {
                         language={repository.language}
                         stars={repository.stargazers_count}
                         forks={repository.forks_count}
-                        pushTime={repository.pushed_at}
+                        pushTime={repository.updated_at}
                         key={repository.id}
                     />
                 })

@@ -29,8 +29,9 @@ const UserInfo = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const now = (moment())
-    console.log(now)
+    // const someTime = '2020-05-31T08:12:55Z'
+    // const now = (moment(someTime).format('DD-MMMM-YYYY HH:MM'))
+    // console.log(now)
 
 
     return (
@@ -43,7 +44,7 @@ const UserInfo = (props) => {
                         language={repository.language}
                         stars={repository.stargazers_count}
                         forks={repository.forks_count}
-                        pushTime={repository.updated_at}
+                        pushTime={moment(repository.updated_at).format('DD-MMMM-YYYY HH:MM')}
                         key={repository.id}
                     />
                 })

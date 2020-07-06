@@ -4,27 +4,26 @@ import style from '../../Components/UserAccountInfo/UserAccountInfo.module.css'
 const UserAccountInfo = () => {
     return (
         <div className={style.UserAccountInfo}>
-            <div>
-                <img src="" alt="" className={style.ProfilePicture} />
+            <div className={style.ProfilePicture}>
+                <img src="" alt="" />
             </div>
 
-            <div>
+            <div className={style.UserInfo}>
                 <span className={style.UserName}>UserX</span>
                 <div className={style.WorkInfos}>
-
                     <div className={style.WorkInfo}>
                         <img src="" alt="" />
-                        <span></span>
+                        <span>Company X</span>
                     </div>
 
                     <div className={style.WorkInfo}>
                         <img src="" alt="" />
-                        <span></span>
+                        <span>Location X</span>
                     </div>
 
                     <div className={style.WorkInfo}>
                         <img src="" alt="" />
-                        <span></span>
+                        <span>Website X</span>
                     </div>
 
                 </div>

@@ -4,7 +4,8 @@ import RepositoryCard from './Components/Cards/RepositoryCard/RepositoryCard'
 import ProfilePicture from './Components/ProfilePicture/ProfilePicture';
 import Error from './Components/Error/Error';
 import UserInfo from './Containers/UserInfo/UserInfo'
-import Spinner from './Components/Spinner/Spinner'
+import Spinner from './Components/Spinner/Spinner';
+import UserAccountInfo from './Components/UserAccountInfo/UserAccountInfo'
 
 
 const style = {
@@ -22,6 +23,7 @@ const ComponentRenderTest = () => {
         {/* <UserInfo/> */}
         <Error/>
         <Spinner/>
+        <UserAccountInfo/>
     </div>
     )
 }

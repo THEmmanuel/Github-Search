@@ -1,0 +1,12 @@
+.UserAccountInfo{
+    display : flex;
+    flex-direction: row;
+}
+
+.ProfilePicture {
+    background-color: yellow;
+    border-radius: 50%;
+    width : 150px;
+    height : 150px;
+}
+

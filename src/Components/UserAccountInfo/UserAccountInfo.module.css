@@ -1,6 +1,9 @@
 .UserAccountInfo{
     display : flex;
     flex-direction: row;
+    width: 55%;
+    margin:auto;
+    height : 200px
 }
 
 .ProfilePicture {
@@ -8,5 +11,14 @@
     border-radius: 50%;
     width : 150px;
     height : 150px;
+}
+
+.UserName {
+    font-weight: bold;
+    font-size: 1.5em;
+    width: 200px;
+    display: block;
+    margin-bottom: 50px;
+    /* padding: 50px; */
 }
 

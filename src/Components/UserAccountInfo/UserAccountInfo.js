@@ -10,6 +10,7 @@ const UserAccountInfo = () => {
 
             <div className={style.UserInfo}>
                 <span className={style.UserName}>UserX</span>
+                
                 <div className={style.WorkInfos}>
                     <div className={style.WorkInfo}>
                         <img src="" alt="" />

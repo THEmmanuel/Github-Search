@@ -7,6 +7,8 @@ import moment from 'moment'
 // const testingArray = [
 //     1, 2, 3, 4
 // ];
+//Add your certifications
+//Check out JavaScript skill IQ
 
 const UserInfo = (props) => {
 
@@ -55,7 +57,7 @@ const UserInfo = (props) => {
 
 //Show the user account info in it's own component.
 //Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats
-//Display the time as it should be
-//Sort the repos according to time
+//Display the time as it should be ...done
+//Sort the repos according to time ...done
 
 export default UserInfo;

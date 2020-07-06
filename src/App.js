@@ -123,8 +123,8 @@ const App = () => {
 
 
 			<Switch>
-				<Route path='/user/:userName'>
-					<UserInfo user={selectedUser} exact />
+				<Route path='/user/:userName' exact>
+					<UserInfo user={selectedUser}/>
 				</Route>
 			</Switch>
 		</Router>

@@ -1,10 +1,15 @@
-import React from 'react'
-import style from './UserDetails.module.css'
+import React from 'react';
+import style from './UserDetails.module.css';
+import UserAccountInfo from '../../Components/UserAccountInfo/UserAccountInfo';
+import UserInfo from '../UserInfo/UserInfo';
+import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
 
-const UserDetails = () => {
+const UserDetails = (props) => {
     return (
-        <div>
-            
+        <div className = {style.UserDetails}>
+            <UserAccountInfo/>
+            <RepositoryCard/>
+            <UserInfo/>
         </div>
     )
 }

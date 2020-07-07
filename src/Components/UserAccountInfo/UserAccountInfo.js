@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './UserAccountInfo.module.css'
 
-const UserAccountInfo = () => {
+const UserAccountInfo = (props) => {
     return (
         <div className={style.UserAccountInfo}>
             <div className={style.ProfilePicture}>
@@ -42,14 +42,14 @@ const UserAccountInfo = () => {
                 <div>
                     <span className={style.StatsCount}>10</span>
                     <br />
-                    <span className={style.StatsText}>followers</span>
+                    <span className={style.StatsText}>following</span>
 
                 </div>
 
                 <div>
                     <span className={style.StatsCount}>10</span>
                     <br />
-                    <span className={style.StatsText}>Followers</span>
+                    <span className={style.StatsText}>Repositories</span>
                 </div>
             </div>
         </div>

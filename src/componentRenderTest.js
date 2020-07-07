@@ -5,7 +5,7 @@ import ProfilePicture from './Components/ProfilePicture/ProfilePicture';
 import Error from './Components/Error/Error';
 import UserInfo from './Containers/UserInfo/UserInfo'
 import Spinner from './Components/Spinner/Spinner';
-import UserAccountInfo from './Components/UserAccountInfo/UserAccountInfo'
+import UserDetails from './Containers/UserDetails/UserDetails'
 
 
 const style = {
@@ -23,7 +23,7 @@ const ComponentRenderTest = () => {
         {/* <UserInfo/> */}
         <Error/>
         <Spinner/>
-        <UserAccountInfo/>
+        <UserDetails/>
     </div>
     )
 }

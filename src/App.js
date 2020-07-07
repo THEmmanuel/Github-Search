@@ -12,6 +12,7 @@ import './App.css';
 import githubApi from './API/github';
 //Router import
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import UserDetails from './Containers/UserDetails/UserDetails';
 
 
 const initialState = {
@@ -124,7 +125,7 @@ const App = () => {
 
 			<Switch>
 				<Route path='/user/:userName' exact>
-					<UserInfo user={selectedUser}/>
+					<UserDetails user={selectedUser}/>
 				</Route>
 			</Switch>
 		</Router>

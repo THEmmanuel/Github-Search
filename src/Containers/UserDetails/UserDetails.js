@@ -7,11 +7,11 @@ import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard
 const UserDetails = (props) => {
     return (
         <div className = {style.UserDetails}>
-            <UserAccountInfo/>
+            <UserAccountInfo user = {props.user}/>
             <RepositoryCard/>
-            <UserInfo/>
+            <UserInfo user = {props.user}/>
         </div>
     )
 }
 
-export default UserDetails
+export default UserDetails;

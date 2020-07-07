@@ -10,7 +10,7 @@ const UserAccountInfo = () => {
 
 
             <div className={style.UserInfo}>
-                <span className={style.UserName}>UserX</span>
+                <span className={style.UserName}>THEmmanuel</span>
 
                 <div className={style.WorkInfos}>
                     <div className={style.WorkInfo}>

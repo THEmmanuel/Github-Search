@@ -3,7 +3,8 @@
     grid-template-columns: 1fr 1fr 2fr;
     width: 500px;
     margin:auto;
-    height : 200px
+    height : 200px;
+    /* grid-gap: 10px; */
 }
 
 .ProfilePicture {
@@ -27,22 +28,28 @@
      
 }
 
+.WorkInfo {
+    font-size: 1.3em;
+}
+
 .UserInfo {
-    margin: auto;
+    margin: auto 30px;
+    align-content: flex-start;
+    text-align: left;
 }
 
 .Stats{
-    margin: 40px auto;
+    margin: 30px auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 15px;
 }
 
 .StatsCount {
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 
 .StatsText {
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 

@@ -8,9 +8,10 @@ const UserAccountInfo = () => {
                 <img src="" alt="" />
             </div>
 
+
             <div className={style.UserInfo}>
                 <span className={style.UserName}>UserX</span>
-                
+
                 <div className={style.WorkInfos}>
                     <div className={style.WorkInfo}>
                         <img src="" alt="" />
@@ -30,13 +31,31 @@ const UserAccountInfo = () => {
                 </div>
             </div>
 
-            <div>
-                <span className={style.StatsCount}>10</span>
-                <span className={style.StatsCount}>10</span>
-                <span className={style.StatsCount}>10</span>
+            <div className={style.Stats}>
+                <div>
+                    <span className={style.StatsCount}>10</span>
+                    <br />
+                    <span className={style.StatsText}>followers</span>
+
+                </div>
+
+                <div>
+                    <span className={style.StatsCount}>10</span>
+                    <br />
+                    <span className={style.StatsText}>followers</span>
+
+                </div>
+
+                <div>
+                    <span className={style.StatsCount}>10</span>
+                    <br />
+                    <span className={style.StatsText}>Followers</span>
+                </div>
             </div>
         </div>
     )
 }
 
 export default UserAccountInfo;
+
+//This can still be further broken down into components yunno

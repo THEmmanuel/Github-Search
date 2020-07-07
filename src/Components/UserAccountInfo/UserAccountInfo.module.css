@@ -1,7 +1,7 @@
 .UserAccountInfo{
-    display : flex;
-    flex-direction: row;
-    width: 55%;
+    display : grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    width: 500px;
     margin:auto;
     height : 200px
 }
@@ -11,14 +11,38 @@
     border-radius: 50%;
     width : 150px;
     height : 150px;
+    margin: auto;
 }
 
 .UserName {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.8em;
     width: 200px;
     display: block;
     margin-bottom: 50px;
     /* padding: 50px; */
+}
+
+.WorkInfos {
+     
+}
+
+.UserInfo {
+    margin: auto;
+}
+
+.Stats{
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+}
+
+.StatsCount {
+    font-size: 1.5em;
+}
+
+.StatsText {
+    font-size: 1.2em;
 }
 

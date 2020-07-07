@@ -1,5 +1,5 @@
 import React from 'react';
-import style from '../../Components/UserAccountInfo/UserAccountInfo.module.css'
+import style from './UserAccountInfo.module.css'
 
 const UserAccountInfo = () => {
     return (

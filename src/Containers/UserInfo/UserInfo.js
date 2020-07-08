@@ -4,15 +4,11 @@ import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
 import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
 import moment from 'moment'
-// const testingArray = [
-//     1, 2, 3, 4
-// ];
 //Add your certifications
 //Check out JavaScript skill IQ
 
 const UserInfo = (props) => {
 
-    // const [accountStats, setAccountStats] = useState()
     const [repositories, setRepositories] = useState([])
 
 
@@ -30,10 +26,6 @@ const UserInfo = (props) => {
         return console.log(repositories)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-    // const someTime = '2020-05-31T08:12:55Z'
-    // const now = (moment(someTime).format('DD-MMMM-YYYY HH:MM'))
-    // console.log(now)
 
 
     return (

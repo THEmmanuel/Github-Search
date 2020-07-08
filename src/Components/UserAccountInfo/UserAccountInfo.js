@@ -1,8 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './UserAccountInfo.module.css'
+import githubAPI from '../../API/github';
 
 const UserAccountInfo = (props) => {
+
+    const [accountInfo, setAccountInfo] = useState({
+        followers: null,
+        followings: null,
+        repoCount: null,
+        profileImage: null,
+        location: '',
+        company: '',
+        website: ''
+    })
+
+
+    const userAccountFollowersHandler = user => {
+        githubAPI.get (``)
+    }
+
+    const userFollowingsHandler = null
+    const userRepositoriesHandler = null
+
     return (
+
         <div className={style.UserAccountInfo}>
             <div className={style.ProfilePicture}>
                 <img src="" alt="" />

@@ -11,8 +11,6 @@ const UserInfo = (props) => {
 
     const [repositories, setRepositories] = useState([])
 
-
-
     const userRepoHandler = user => {
         githubAPI.get(`users/${user}/repos?sort=updated&direction=desc`)
             .then(response => {
@@ -47,8 +45,8 @@ const UserInfo = (props) => {
     )
 }
 
-//Show the user account info in it's own component.
-//Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats
+//Show the user account info in it's own component...done
+//Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats...done
 //Display the time as it should be ...done
 //Sort the repos according to time ...done
 

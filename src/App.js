@@ -119,7 +119,7 @@ const App = () => {
 								)
 					}
 				</SearchResults>
-				<ComponentRenderTest />
+				{/* <ComponentRenderTest /> */}
 			</div>
 
 

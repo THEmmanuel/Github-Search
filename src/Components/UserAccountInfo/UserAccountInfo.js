@@ -37,7 +37,7 @@ const UserAccountInfo = (props) => {
 
     useEffect(() => {
         userAccountFollowersHandler(props.user)
-        console.log(accountInfo)
+        // console.log(accountInfo)
     }, [])
     // const userFollowingsHandler = null
     // const userRepositoriesHandler = null

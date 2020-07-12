@@ -94,10 +94,13 @@ const App = () => {
 	const { isLoading, searchResults, errorMessage } = state
 
 	return (
-		<Router>
+		// <Router>
+		<>
 			<div className="App">
 				<Search search={userSearch} />
-
+				
+				<Switch>
+				<Route exact path='/'>
 				<SearchResults>
 					{
 						isLoading && !errorMessage ?
@@ -119,16 +122,18 @@ const App = () => {
 								)
 					}
 				</SearchResults>
+				</Route>
 				{/* <ComponentRenderTest /> */}
+
+					<Route exact path='/user/:userName' component={() => <UserDetails user={selectedUser} />} />
+					{/* // </Route> */}
+				</Switch>
 			</div>
 
 
-			<Switch>
-				<Route path='/user/:userName' exact>
-					<UserDetails user={selectedUser}/>
-				</Route>
-			</Switch>
-		</Router>
+		</>
+		// </Router>
+
 	)
 }
 

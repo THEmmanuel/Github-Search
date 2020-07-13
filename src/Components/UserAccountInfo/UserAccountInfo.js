@@ -45,10 +45,10 @@ const UserAccountInfo = (props) => {
     return (
 
         <div className={style.UserAccountInfo}>
-            <div className={style.ProfilePicture}>
-                <img src={accountInfo.profileImage} alt="" />
-            </div>
 
+            <div>
+                <img src={accountInfo.profileImage} className={style.ProfilePicture} alt="" />
+            </div>
 
             <div className={style.UserInfo}>
                 <span className={style.UserName}>{props.user}</span>

@@ -3,7 +3,7 @@
     grid-template-columns: 1fr 1fr 2fr;
     width: 70%;
     max-width: 800px;
-    min-width: 330px;
+    min-width: 300px;
     margin:auto;
     height : 200px;
     /* grid-gap: 10px; */
@@ -49,11 +49,20 @@
     font-size: 1.4em;
 }
 
-@media(max-width: 750px) {
+@media(max-width: 770px) {
     .UserAccountInfo{
         display: grid;
         grid-template-rows: 2fr 1fr;
         grid-template-columns: 1fr;
+    }
+
+    .UserInfo {
+        text-align: center;
+        margin: auto;
+    }
+
+    .UserName {
+        text-align: center;
     }
 }
 

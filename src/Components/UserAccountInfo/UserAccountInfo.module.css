@@ -1,7 +1,9 @@
 .UserAccountInfo{
     display : grid;
     grid-template-columns: 1fr 1fr 2fr;
-    width: 800px;
+    width: 70%;
+    max-width: 800px;
+    min-width: 600px;
     margin:auto;
     height : 200px;
     /* grid-gap: 10px; */
@@ -20,11 +22,6 @@
     width: 200px;
     display: block;
     margin-bottom: 50px;
-    /* padding: 50px; */
-}
-
-.WorkInfos {
-     
 }
 
 .WorkInfo {
@@ -50,5 +47,14 @@
 
 .StatsText {
     font-size: 1.4em;
+}
+
+@media(max-width: 750px) {
+    .UserAccountInfo{
+        display: grid;
+        grid-template-rows: 2fr 1fr;
+        width: 500px;
+        grid-template-columns: 1fr;
+    }
 }
 

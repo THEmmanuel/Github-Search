@@ -38,3 +38,9 @@
     background-color: #0D2241;
     color: #DADEE4;
 }
+
+@media(max-width: 500px) {
+    .RepositoryCard{
+        margin: 15px
+    }
+}

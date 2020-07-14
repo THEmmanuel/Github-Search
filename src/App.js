@@ -117,7 +117,6 @@ const App = () => {
 					}
 				</SearchResults>
 				</Route>
-
 					<Route exact path='/user/:userName' component={() => <UserDetails user={selectedUser} />} />
 				</Switch>
 			</div>

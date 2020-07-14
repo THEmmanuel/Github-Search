@@ -5,7 +5,7 @@
     max-width: 800px;
     min-width: 300px;
     margin:auto;
-    height : 200px;
+    height : auto;
     /* grid-gap: 10px; */
 }
 
@@ -54,6 +54,7 @@
         display: grid;
         grid-template-rows: 2fr 1fr;
         grid-template-columns: 1fr;
+        /* height: 400px; */
     }
 
     .UserInfo {

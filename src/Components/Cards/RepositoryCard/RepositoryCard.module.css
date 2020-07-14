@@ -4,7 +4,6 @@
     transition: all 0.5s ease-in-out;
     max-width: 500px;
     min-width: 320px;
-    /* height: 150px; */
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
@@ -15,11 +14,9 @@
 }
 
 .RepositoryName {
-    /* justify-self: left; */
     margin: 15px auto 15px 10px;
     font-size: large;
     font-weight: bold;
-    /* background-color: darkgreen; */
 }
 
 .RepositoryDescription {

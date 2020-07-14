@@ -8,7 +8,4 @@ const profilePicture = (props) => {
         </div>
     )
 }
-
-//Change the profile picture css dynamically with props
-
 export default profilePicture;

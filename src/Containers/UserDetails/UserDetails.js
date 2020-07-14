@@ -8,7 +8,6 @@ const UserDetails = (props) => {
     return (
         <div className = {style.UserDetails}>
             <UserAccountInfo user = {props.user}/>
-            {/* <RepositoryCard/>0 */}
             <UserInfo user = {props.user}/>
         </div>
     )

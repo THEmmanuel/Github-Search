@@ -1,14 +1,12 @@
 import React, { useReducer, useState } from 'react';
 import Search from './Containers/Search/Search';
 import SearchResults from './Containers/SearchResults/SearchResults';
-import ComponentRenderTest from './componentRenderTest';
 import UserCard from './Components/Cards/UserCard/UserCard';
 import Spinner from './Components/Spinner/Spinner';
 import Error from './Components/Error/Error';
-import UserInfo from './Containers/UserInfo/UserInfo';
 import './App.css';
 import githubApi from './API/github';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Route, Switch, Link } from 'react-router-dom';
 import UserDetails from './Containers/UserDetails/UserDetails';
 
 
@@ -67,7 +65,6 @@ const App = () => {
 					type: 'USER_SEARCH_SUCCESS',
 					payload: response.data.items
 				})
-				console.log(response)
 			})
 
 			.catch(
@@ -98,6 +95,7 @@ const App = () => {
 				<SearchResults>
 					{
 						isLoading && !errorMessage ?
+							
 							<Spinner /> :
 							errorMessage ? (
 								<Error />

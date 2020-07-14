@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ProfilePicture from '../../Components/ProfilePicture/ProfilePicture';
 import style from './UserInfo.module.css';
 import githubAPI from '../../API/github';
 import RepositoryCard from '../../Components/Cards/RepositoryCard/RepositoryCard';
 import moment from 'moment'
-//Add your certifications
-//Check out JavaScript skill IQ
 
 const UserInfo = (props) => {
 
@@ -15,7 +12,6 @@ const UserInfo = (props) => {
         githubAPI.get(`users/${user}/repos?sort=updated&direction=desc`)
             .then(response => {
                 setRepositories(repositories.concat(response.data))
-                // console.log(response.data)
             })
     }
 
@@ -44,10 +40,5 @@ const UserInfo = (props) => {
         </div>
     )
 }
-
-//Show the user account info in it's own component...done
-//Create a new container component UserAccountInfo that'll display the Repositories fetched here and the User account stats...done
-//Display the time as it should be ...done
-//Sort the repos according to time ...done
 
 export default UserInfo;

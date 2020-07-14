@@ -78,15 +78,17 @@ const App = () => {
 					})
 				}
 			)
-	}
+				
+		}
+
+	const { isLoading, searchResults, errorMessage } = state
 
 	const userSelectedHandler = userName => {
 		setSelectedUser(userName);
 	}
 
-	const { isLoading, searchResults, errorMessage } = state
-
 	return (
+
 		<>
 			<div className="App">
 				<Search search={userSearch} />
@@ -102,7 +104,7 @@ const App = () => {
 							) : (
 									searchResults.map(user => {
 										return (
-											<Link to={`/user/${selectedUser}`} key={user.id}>
+											<Link to={`/user/${user.login}`} key={user.id}>
 												<UserCard
 													userName={user.login}
 													userImage={user.avatar_url}

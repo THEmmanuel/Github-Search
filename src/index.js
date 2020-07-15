@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router basename = '/Github-Search/'>
       <App />
     </Router>
   </React.StrictMode>,

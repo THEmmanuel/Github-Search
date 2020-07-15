@@ -6,7 +6,7 @@ import Spinner from './Components/Spinner/Spinner';
 import Error from './Components/Error/Error';
 import './App.css';
 import githubApi from './API/github';
-import { BrowserRouter as Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import UserDetails from './Containers/UserDetails/UserDetails';
 
 
@@ -89,7 +89,6 @@ const App = () => {
 		<>
 			<div className="App">
 				<Search search={userSearch} />
-				
 				<Switch>
 				<Route exact path='/'>
 				<SearchResults>
@@ -115,7 +114,7 @@ const App = () => {
 					}
 				</SearchResults>
 				</Route>
-					<Route exact path='/user/:userName' component={() => <UserDetails user={selectedUser} />} />
+					<Route path='/user/:userName' component={() => <UserDetails user={selectedUser} />} />
 				</Switch>
 			</div>
 
